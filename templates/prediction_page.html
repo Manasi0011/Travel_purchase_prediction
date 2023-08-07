@@ -1,0 +1,107 @@
+
+<!DOCTYPE html >
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<title>Travel Purchase Prediction</title>
+
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" type="text/css" href ="templates\st.css" />
+<style>
+
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+    html { width: 100%; height:100%; overflow:hidden; }
+
+body {
+	width: 100%;
+	height:100%;
+	font-family: 'Helvetica';
+	background: #000;
+	color: #fff;
+	font-size: 24px;
+	text-align:center;
+	letter-spacing:1.4px;
+	overflow: scroll;
+
+
+}
+.login {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+	width:400px;
+	height:400px;
+}
+
+.login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+.scrollable-container {
+      height: 300px;
+      overflow: auto;
+    }
+
+input {
+	width: 100%;
+	margin-bottom: 10px;
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+
+</style>
+
+</head>
+ <div class="login">
+
+
+	<h3>Travel  Package     Purchase    Prediction</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="xyz" method="POST",>
+        <input type="text" name="Age" placeholder="Age" required="required" />
+	    <input type="text" name="Type of Contact" placeholder="Type of Contact" required="required" />
+        <input type="text" name="City Tier" placeholder="City Tier" required="required" />
+        <input type="text" name="Duration Of Pitch" placeholder="Duration Of Pitch" required="required" />
+        <input type="text" name="Occupation" placeholder="Occupation" required="required" />
+        <input type="text" name="Gender" placeholder="Gender" required="required" />
+        <input type="text" name="NumberOfPersonVisited" placeholder="Number Of Person Visited" required="required" />
+        <input type="text" name="NumberOfFollowups" placeholder="Number Of Followups" required="required" />
+        <input type="text" name="PreferredPropertyStar" placeholder="Preferred Property Star" required="required" />
+        <input type="text" name="ProductPitched" placeholder="Product Pitched" required="required" />
+        <input type="text" name="MaritalStatus" placeholder="Marital Status" required="required" />
+        <input type="text" name="NumberOfTrips" placeholder="Number Of Trips" required="required" />
+        <input type="text" name="Passport" placeholder="Passport" required="required" />
+        <input type="text" name="PitchSatisfactionScore" placeholder="Pitch Satisfaction Score" required="required" />
+        <input type="text" name="OwnCar" placeholder="OwnCar" required="required" />
+        <input type="text" name="NumberOfChildrenVisited" placeholder="Number Of Children Visited" required="required" />
+        <input type="text" name="Designation" placeholder="Designation" required="required" />
+        <input type="text" name="MonthlyIncome" placeholder="Monthly Income" required="required" />
+        <button value ="Predict" type="submit" class="btn btn-primary btn-block btn-large">predict</button>
+
+
+    </form>
+
+   <br>
+     {{pred}}
+   <br>
+
+
+ </div>
+</html>
