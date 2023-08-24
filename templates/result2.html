@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Helvetica';
+            background: #000;
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            letter-spacing: 1.4px;
+            overflow: auto;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('https://img.piri.net/mnresize/900/-/resim/imagecrop/2020/07/04/11/43/resized_abe34-f57209412.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .result-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .prediction-result {
+            font-size: 30px;
+            margin-top: 20px;
+            color: #f39c12;
+        }
+
+        /* Add styling to the "Predict" button */
+        .btn {
+            display: inline-block;
+            padding: 13px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #000;
+            color: #fff; /* Text color is white */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            color: #fff; /* Text color remains white on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container"></div> <!-- Background container -->
+
+    <div class="result-container">
+        <h3>Travel Package Purchase Prediction Result</h3>
+
+        <div class="prediction-result">
+            <p>The model predicts that the customer {{prediction}} purchase the package.
+            <p>Since, there is a {{probability}}% probability of purchase.
+            <br>
+            <br>
+
+        </div>
+        <button onclick="history.back()" class="btn btn-secondary btn-block btn-large">Go Back to Form</button>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Purchase Prediction</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href ="templates\st.css" />
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+        html {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Helvetica';
+            background: #000;
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            letter-spacing: 1.4px;
+            overflow: auto;
+        }
+
+        /* Add the following style to set the background image container */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('https://img.piri.net/mnresize/900/-/resim/imagecrop/2020/07/04/11/43/resized_abe34-f57209412.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Add transparent background to the .login container */
+        .login {
+            position: absolute;
+            top: 32%;
+            left: 45%;
+            margin: -150px 0 0 -150px;
+            width: 450px;
+            height:500px;
+            background-color: rgba(0, 0, 0, 0.5); /* Slightly visible transparent background */
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px; /* Add padding for spacing */
+            border-radius: 10px; /* Add border radius for rounded corners */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add shadow effect */
+        }
+
+        input, select {
+            width: 200px; /* Set the width to be the same for both input and select */
+            margin-bottom: 8px;
+            background: rgba(0, 0, 0, 0.5); /* Transparent background */
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.1), 0 1px 1px rgba(255, 255, 255, 0.2);
+            -webkit-transition: box-shadow 0.5s ease;
+            -moz-transition: box-shadow 0.5s ease;
+            -o-transition: box-shadow 0.5s ease;
+            -ms-transition: box-shadow 0.5s ease;
+            transition: box-shadow 0.5s ease;
+        }
+        /* Add gap between columns */
+        .column-container {
+            display: flex;
+            gap: 35px; /* Adjust this value to set the desired gap between columns */
+        }
+
+        /* Add styling to the "Predict" button */
+        .btn {
+            display: inline-block;
+            padding: 13px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #000;
+            color: #fff; /* Text color is white */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            color: #fff; /* Text color remains white on hover */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="background-container"></div> <!-- Background container -->
+
+    <div class="login">
+        <h3>Travel Package Purchase Prediction</h3>
+
+        <!-- Your existing form and input fields -->
+        <form action=/predict method="POST">
+            <div class="column-container">
+                <div class="column">
+                    <input type="text" name="Age" placeholder="Age" required="required" min="1" max="100"/>
+                    <select name="TypeofContact" required="required">
+                        <option value="" disabled selected>Select Type of Contact</option>
+                        <option value="Self Enquiry">Self Enquiry</option>
+                        <option value="Company Invited">Company Invited</option>
+                    </select>
+                    <select name="CityTier" required="required">
+                        <option value="" disabled selected>City Tier</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <select name="Occupation" required="required">
+                        <option value="" disabled selected>Occupation</option>
+                        <option value="Salaried">Salaried</option>
+                        <option value="Small Business">Small Business</option>
+                        <option value="Large Business">Large Business</option>
+                        <option value="Free Lancer">Free Lancer</option>
+                    </select>
+                    <select name="Designation" required="required">
+                        <option value="" disabled selected>Designation</option>
+                        <option value="Executive">Executive</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Senior Manager">Senior Manager</option>
+                        <option value="AVP">AVP</option>
+                        <option value="VP">VP</option>
+                    </select>
+                    <input type="text" name="MonthlyIncome" placeholder="Monthly Income" required="required" />
+                    <select name="Gender" required="required">
+                        <option value="" disabled selected>Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <select name="PreferredPropertyStar" required="required">
+                        <option value="" disabled selected>Preferred Property Star</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <select name="MaritalStatus" required="required">
+                        <option value="" disabled selected>Marital Status</option>
+                        <option value="Married">Married</option>
+                        <option value="Divorced">Divorced</option>
+                        <option value="Single">Single</option>
+                        <option value="Unmarried">Unmarried</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <input type="text" name="NumberOfTrips" placeholder="Number Of Trips" required="required" />
+                    <input type="text" name="NumberOfPersonVisited" placeholder="Number Of Person Visited" required="required" />
+                    <select name="Passport" required="required">
+                        <option value="" disabled selected>Passport</option>
+                        <option value="1">Passport Available</option>
+                        <option value="0">Passport Not Available</option>
+                    </select>
+                    <select name="OwnCar" required="required">
+                        <option value="" disabled selected>Own Car</option>
+                        <option value="1">Possesses Own Car</option>
+                        <option value="0">Does Not Own Car</option>
+                    </select>
+                    <input type="text" name="DurationOfPitch" placeholder="Duration Of Pitch" required="required" />
+                    <input type="text" name="NumberOfFollowups" placeholder="Number Of Followups" required="required" />
+
+                    <select name="ProductPitched" required="required">
+                        <option value="" disabled selected>Product Pitched</option>
+                        <option value="Basic">Basic</option>
+                        <option value="Deluxe">Deluxe</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Super Deluxe">Super Deluxe</option>
+                        <option value="King">King</option>
+                    </select>
+                    <select name="PitchSatisfactionScore" required="required">
+                        <option value="" disabled selected>Pitch Satisfaction Score</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <input type="text" name="NumberOfChildrenVisited" placeholder="Number Of Children Visited" required="required" />
+                </div>
+            </div>
+            <button value="Predict" type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            <button type="Reset" class="btn btn-secondary btn-block btn-large">Reset</button>
+
+        </form>
+    </div>
+    <script>
+        document.getElementById("prediction-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Process the form data and determine the prediction result
+            var predictionResult = 1; // Replace with your actual prediction logic
+
+            // Determine the prediction message based on the result
+            var predictionMessage = predictionResult === 1
+                ? "Customer will purchase the package."
+                : "Customer will not purchase the package.";
+
+            // Redirect to the result page with the prediction message
+            window.location.href = "result.html?prediction_message=" + encodeURIComponent(predictionMessage);
+        });
+    </script>
+</body>
+</html>
+
+
