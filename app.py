@@ -5,13 +5,13 @@ import pandas as pd
 
 app = Flask(__name__)
 
-model = pickle.load(open('../Models/model.pkl', 'rb'))
-pipeline = pickle.load(open("../Models/preprocessing_pipeline.pkl", "rb"))
+model = pickle.load(open('Models/model.pkl', 'rb'))
+pipeline = pickle.load(open("Models/preprocessing_pipeline.pkl", "rb"))
 
 
 @app.route("/")
 def hello_world():
-    return render_template("prediction_page4.html")
+    return render_template("prediction_page.html")
 
 
 @app.route('/predict', methods=['POST', 'GET'])
