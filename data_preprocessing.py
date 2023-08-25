@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("../Datasets/Tourist_Dataset.csv")
+df = pd.read_csv("Datasets/Tourist_Dataset.csv")
 
 """### **Segregating numerical and categorical**"""
 df_num = df.select_dtypes(['int64', 'float64'])

@@ -5,8 +5,8 @@ import pandas as pd
 
 app = Flask(__name__)
 
-model = pickle.load(open('Models/model.pkl', 'rb'))
-pipeline = pickle.load(open("Models/preprocessing_pipeline.pkl", "rb"))
+model = pickle.load(open('model.pkl', 'rb'))
+pipeline = pickle.load(open("preprocessing_pipeline.pkl", "rb"))
 
 
 @app.route("/")
