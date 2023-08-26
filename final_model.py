@@ -7,7 +7,7 @@ from sklearn.feature_selection import SelectKBest, f_classif
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv("Datasets/Cleaned_Tourist_Dataset.csv")
+df = pd.read_csv("../Datasets/Cleaned_Tourist_Dataset.csv")
 df = df.drop('Unnamed: 0', axis=1)
 
 # defining target feature and independent features
