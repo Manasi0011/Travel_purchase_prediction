@@ -30,7 +30,7 @@ Applying the machine learning tasks like Data Exploration, Data Cleaning, Featur
 
 https://travel-package-app-709689fca2a4.herokuapp.com/
 
-## Web Inerface :
+## Web Interface :
 ![Uploading Screenshot 2023-08-28 184536.png…]()
 
 
